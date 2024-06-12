@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ms-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="background test, background changer, css test background, javascript background">
+    <meta name="description" content="Change background design css simulator with javascript scripting for beginner.">
+    <meta name="author" content="mika2597">
+    <title>Change Background Simulator - Mika259</title>
+    <style>
+    	/*Halaman ini dibuat seratus peratus tanpa bantuan pihak lain.
+    	  Saya berasal daripada Pahang Malaysia, dan nama saya hakim :)*/
+        body{
+            all: unset;
+        }
+        .box{
+            background-color: dodgerblue;
+            color: gold;
+            border: solid 1px gray;
+            box-shadow: 0 0 12px rgba(0,0,0,0.50);
+            border-radius: 45px;
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+            transition: .3s;
+            margin: 200px;
+            opacity: 0.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box:hover{
+            opacity: 1;
+            background-color: rgb(197, 247, 61);
+        }
+        main{
+            transition: .4s;
+            height: 55cap;
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="text"]{
+            width: 100%;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        a{
+        	text-transform: uppercase;
+            text-decoration: none;
+        }
+        .info{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        .reset{
+        	position: absolute;
+        	top: 5px;
+        	left: 5px;
+        }
+    </style>
+    <script>
+        function info(){
+            setTimeout(function(){
+            window.alert("-- Change Background --\nclick reset at top left to reset background to default color\n\n1. type color - red/blue/yellow/... rgb(0,0,0)/rgba(0,0,0,0)\n2. type url - url('url-Image')\n3. type gradient - linear-gradient(to right,blue,purple)\n4. type radial - radial-gradient(red,pink)\n\nThe programe was powered by @mika2597")
+            }, 500)
+        }
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="masukkan" id="color">
+    <main>
+        <div class="box">UBAH</div>
+    </main>
+    <a href="javascript:info()" class="info">info</a>
+    <a href="javascript:reset()" class="reset">reset</a>
+    <script>
+    	document.querySelector(".box").style.opacity = "1"
+        function cb(){
+            const color = document.getElementById("color").value
+            document.querySelector("main").style.background = color
+        }
+        document.querySelector(".box").addEventListener('click', cb)
+        setTimeout(function(){
+            document.querySelector("main").style.background = "yellow"
+        }, 500)
+        setTimeout(function(){
+            document.querySelector("main").style.background = "red"
+        }, 800)
+        setTimeout(function(){
+            document.querySelector("main").style.background = "blue"
+        }, 1100)
+        setTimeout(function(){
+            document.querySelector("main").style.background = "linear-gradient(to bottom,blue,lightblue)"
+        }, 1400)
+        setTimeout(function(){
+            document.querySelector("main").style.background = "white";
+            document.querySelector(".box").style.opacity = "0.2"
+        }, 1700)
+        function reset(){
+        	document.querySelector("main").style.background = "none"
+        }
+    </script>
+</body>
+</html>
